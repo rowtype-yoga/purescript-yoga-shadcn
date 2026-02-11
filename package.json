@@ -11,8 +11,7 @@
     "radix-ui": "^1.4.0",
     "react-resizable-panels": "^4.0.0",
     "sonner": "^2.0.0",
-    "vaul": "^1.1.0",
-    "yoga-stories": "0.1.4"
+    "vaul": "^1.1.0"
   },
   "peerDependencies": {
     "react": ">=18",
