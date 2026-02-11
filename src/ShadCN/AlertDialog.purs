@@ -1,8 +1,10 @@
 module ShadCN.AlertDialog where
 
+import Prelude
+
 import React.Basic (JSX)
 import ShadCN.Button as Btn
-import Yoga.React.DOM.HTML (button, div)
+import Yoga.React.DOM.HTML (div)
 import Yoga.React.DOM.Internal (class IsJSX, createElement)
 import ShadCN.Radix as Radix
 
