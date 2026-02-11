@@ -1,0 +1,272 @@
+{
+  "_radix": {
+    "files": ["Radix.purs", "Radix.js"],
+    "npmDeps": ["radix-ui"],
+    "componentDeps": []
+  },
+  "accordion": {
+    "files": ["Accordion.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "alert": {
+    "files": ["Alert.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "alert-dialog": {
+    "files": ["AlertDialog.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix", "button"]
+  },
+  "aspect-ratio": {
+    "files": ["AspectRatio.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "avatar": {
+    "files": ["Avatar.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "badge": {
+    "files": ["Badge.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "breadcrumb": {
+    "files": ["Breadcrumb.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "button": {
+    "files": ["Button.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "calendar": {
+    "files": ["Calendar.purs", "Calendar.js"],
+    "npmDeps": ["react-day-picker"],
+    "componentDeps": []
+  },
+  "card": {
+    "files": ["Card.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "carousel": {
+    "files": ["Carousel.purs", "Carousel.js"],
+    "npmDeps": ["embla-carousel-react"],
+    "componentDeps": []
+  },
+  "chart": {
+    "files": ["Chart.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "checkbox": {
+    "files": ["Checkbox.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "collapsible": {
+    "files": ["Collapsible.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "command": {
+    "files": ["Command.purs", "Command.js"],
+    "npmDeps": ["cmdk"],
+    "componentDeps": []
+  },
+  "context-menu": {
+    "files": ["ContextMenu.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "dialog": {
+    "files": ["Dialog.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "drawer": {
+    "files": ["Drawer.purs", "Drawer.js"],
+    "npmDeps": ["vaul"],
+    "componentDeps": []
+  },
+  "dropdown-menu": {
+    "files": ["DropdownMenu.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "field": {
+    "files": ["Field.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "hover-card": {
+    "files": ["HoverCard.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "input": {
+    "files": ["Input.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "input-group": {
+    "files": ["InputGroup.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "input-otp": {
+    "files": ["InputOTP.purs", "InputOTP.js"],
+    "npmDeps": ["input-otp"],
+    "componentDeps": []
+  },
+  "item": {
+    "files": ["Item.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "kbd": {
+    "files": ["Kbd.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "label": {
+    "files": ["Label.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "menubar": {
+    "files": ["Menubar.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "native-select": {
+    "files": ["NativeSelect.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "navigation-menu": {
+    "files": ["NavigationMenu.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "pagination": {
+    "files": ["Pagination.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "popover": {
+    "files": ["Popover.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "progress": {
+    "files": ["Progress.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "radio-group": {
+    "files": ["RadioGroup.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "resizable": {
+    "files": ["Resizable.purs", "Resizable.js"],
+    "npmDeps": ["react-resizable-panels"],
+    "componentDeps": []
+  },
+  "scroll-area": {
+    "files": ["ScrollArea.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "select": {
+    "files": ["Select.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "separator": {
+    "files": ["Separator.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "sheet": {
+    "files": ["Sheet.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "sidebar": {
+    "files": ["Sidebar.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "skeleton": {
+    "files": ["Skeleton.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "slider": {
+    "files": ["Slider.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "sonner": {
+    "files": ["Sonner.purs", "Sonner.js"],
+    "npmDeps": ["sonner"],
+    "componentDeps": []
+  },
+  "spinner": {
+    "files": ["Spinner.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "switch": {
+    "files": ["Switch.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "table": {
+    "files": ["Table.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "tabs": {
+    "files": ["Tabs.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "textarea": {
+    "files": ["Textarea.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  },
+  "toast": {
+    "files": ["Toast.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "toggle": {
+    "files": ["Toggle.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "toggle-group": {
+    "files": ["ToggleGroup.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "tooltip": {
+    "files": ["Tooltip.purs"],
+    "npmDeps": [],
+    "componentDeps": ["_radix"]
+  },
+  "typography": {
+    "files": ["Typography.purs"],
+    "npmDeps": [],
+    "componentDeps": []
+  }
+}

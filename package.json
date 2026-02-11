@@ -1,7 +1,9 @@
 {
-  "name": "purescript-yoga-shadcn",
-  "private": true,
+  "name": "yoga-shadcn",
   "type": "module",
+  "bin": {
+    "yoga-shadcn": "./cli/index.js"
+  },
   "dependencies": {
     "@fastify/cors": "^11.2.0",
     "@fastify/static": "^9.0.0",
