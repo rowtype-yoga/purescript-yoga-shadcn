@@ -13,7 +13,7 @@ mkAlertDialog :: {} -> JSX
 mkAlertDialog = component "AlertDialogStory" \_ -> React.do
   pure $ alertDialog
     [ alertDialogTrigger
-        [ Btn.btn Btn.outline Btn.md (text "Delete Account") ]
+        [ Btn.btn Btn.outline Btn.md (text "Show Dialog") ]
     , alertDialogContent
         [ alertDialogHeader
             [ alertDialogTitle (text "Are you absolutely sure?")

@@ -13,18 +13,14 @@ data Variant = Default | Secondary | Destructive | Outline
 
 derive instance Generic Variant _
 
-mkBadge :: { label :: String, variant :: Variant } -> JSX
+mkBadge :: { variant :: Variant } -> JSX
 mkBadge = component "BadgeStory" \props -> React.do
-  let
-    badge = case props.variant of
-      Default -> Badge.badgeDefault
-      Secondary -> Badge.badgeSecondary
-      Destructive -> Badge.badgeDestructive
-      Outline -> Badge.badgeOutline
-  pure $ badge $ props.label
+  pure $ case props.variant of
+    Default -> Badge.badgeDefault "Badge"
+    Secondary -> Badge.badgeSecondary "Secondary"
+    Destructive -> Badge.badgeDestructive "Destructive"
+    Outline -> Badge.badgeOutline "Outline"
 
 default :: JSX
 default = S.story "default" mkBadge
-  { label: "Badge"
-  , variant: enum Default
-  }
+  { variant: enum Default }

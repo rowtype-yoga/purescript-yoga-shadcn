@@ -10,7 +10,7 @@ import YogaStories.Story (story) as S
 
 mkCalendar :: {} -> JSX
 mkCalendar = component "CalendarStory" \_ -> React.do
-  pure $ div { className: "max-w-sm" }
+  pure $ div { className: "rounded-lg border" }
     [ calendar { mode: "single" } ]
 
 default :: JSX

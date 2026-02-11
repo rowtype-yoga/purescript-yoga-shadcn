@@ -3,7 +3,7 @@ module ShadCN.Command.Stories (default) where
 import Prelude hiding (div)
 
 import React.Basic (JSX)
-import ShadCN.Command (command, commandEmpty, commandGroup, commandItem, commandList, commandSeparator)
+import ShadCN.Command (command, commandEmpty, commandGroup, commandInput, commandItem, commandList, commandSeparator)
 import Yoga.React (component)
 import Yoga.React.DOM.HTML (div)
 import Yoga.React.DOM.Internal (text)
@@ -13,15 +13,16 @@ mkCommand :: {} -> JSX
 mkCommand = component "CommandStory" \_ -> React.do
   pure $ div { className: "max-w-sm rounded-lg border" }
     [ command
-        [ commandList
+        [ commandInput "Type a command or search..."
+        , commandList
             [ commandEmpty (text "No results found.")
-            , commandGroup
+            , commandGroup "Suggestions"
                 [ commandItem (text "Calendar")
                 , commandItem (text "Search Emoji")
                 , commandItem (text "Calculator")
                 ]
             , commandSeparator
-            , commandGroup
+            , commandGroup "Settings"
                 [ commandItem (text "Profile")
                 , commandItem (text "Billing")
                 , commandItem (text "Settings")

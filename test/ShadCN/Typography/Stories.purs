@@ -12,23 +12,23 @@ import YogaStories.Story (story) as S
 mkTypography :: {} -> JSX
 mkTypography = component "TypographyStory" \_ -> React.do
   pure $ div { className: "space-y-4 max-w-2xl" }
-    [ typH1 (text "The Joke Tax Chronicles")
-    , typLead (text "Once upon a time, in a far-off land, there was a very lazy king.")
+    [ typH1 (text "Taxing Laughter: The Joke Tax Chronicles")
+    , typLead (text "Once upon a time, in a far-off land, there was a very lazy king who spent all day lounging on his throne.")
     , typH2 (text "The King's Plan")
-    , typP (text "The king thought long and hard, and finally came up with a brilliant plan.")
+    , typP (text "The king thought long and hard, and finally came up with a brilliant plan: he would tax the jokes in the kingdom.")
+    , typBlockquote (text "After all, he said, everyone enjoys a good joke, so it's only fair that they should pay for the privilege.")
     , typH3 (text "The Joke Tax")
-    , typP (text "The king decided to implement a joke tax.")
-    , typBlockquote (text "After all, he said, everyone enjoys a good joke, so it's only fair.")
-    , typH4 (text "People Taxed")
+    , typP (text "The king's subjects were not amused. They grumbled and complained, but the king was firm:")
     , typList
         [ li {} (text "1st level of puns: 5 gold coins")
         , li {} (text "2nd level of jokes: 10 gold coins")
         , li {} (text "3rd level of one-liners: 20 gold coins")
         ]
-    , typP [ text "Use ", typInlineCode (text "typH1"), text " for headings." ]
-    , typLarge (text "Large text")
-    , typSmall (text "Small text")
-    , typMuted (text "Muted text")
+    , typH4 (text "The Jester's Revolt")
+    , typP [ text "The court jester, known as ", typInlineCode (text "Jokester"), text ", was not happy with the new tax." ]
+    , typLarge (text "Never underestimate the power of a good laugh.")
+    , typSmall (text "And always be careful of bad ideas.")
+    , typMuted (text "The kingdom was never the same after that.")
     ]
 
 default :: JSX

@@ -42,7 +42,7 @@ mkButton = component "ButtonStory" \props -> React.do
 
 default :: JSX
 default = S.story "default" mkButton
-  { label: "Click me"
+  { label: "Button"
   , variant: enum Default
   , size: enum Medium
   }

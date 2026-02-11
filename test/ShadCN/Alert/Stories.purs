@@ -13,20 +13,18 @@ data Variant = Default | Destructive
 
 derive instance Generic Variant _
 
-mkAlert :: { title :: String, description :: String, variant :: Variant } -> JSX
+mkAlert :: { variant :: Variant } -> JSX
 mkAlert = component "AlertStory" \props -> React.do
-  let
-    wrapper = case props.variant of
-      Default -> alert
-      Destructive -> alertDestructive
-  pure $ wrapper
-    [ alertTitle $ props.title
-    , alertDescription props.description
-    ]
+  pure $ case props.variant of
+    Default -> alert
+      [ alertTitle "Heads up!"
+      , alertDescription "You can add components to your app using the CLI."
+      ]
+    Destructive -> alertDestructive
+      [ alertTitle "Error"
+      , alertDescription "Your session has expired. Please log in again."
+      ]
 
 default :: JSX
 default = S.story "default" mkAlert
-  { title: "Heads up!"
-  , description: "You can add components to your app using the CLI."
-  , variant: enum Default
-  }
+  { variant: enum Default }
