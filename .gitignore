@@ -1,0 +1,8 @@
+node_modules/
+output/
+.spago/
+dist/
+.psc-ide-port
+static/
+vite.config.js
+yoga-stories-head.js
