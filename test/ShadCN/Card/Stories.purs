@@ -11,16 +11,19 @@ import YogaStories.Story (story) as S
 
 mkCard :: {} -> JSX
 mkCard = component "CardStory" \_ -> React.do
-  pure $ div { className: "max-w-sm" }
-    [ card
-        [ cardHeader
-            [ cardTitle (text "Card Title")
-            , cardDescription (text "Card Description")
+  pure $ div { className: "flex flex-col gap-4" }
+    [ p { className: "text-muted-foreground text-sm" } (text "Displays a card with header, content, and footer.")
+    , div { className: "max-w-sm" }
+        [ card
+            [ cardHeader
+                [ cardTitle (text "Card Title")
+                , cardDescription (text "Card Description")
+                ]
+            , cardContent
+                [ p {} (text "Card Content") ]
+            , cardFooter
+                [ p {} (text "Card Footer") ]
             ]
-        , cardContent
-            [ p {} (text "Card Content") ]
-        , cardFooter
-            [ p {} (text "Card Footer") ]
         ]
     ]
 

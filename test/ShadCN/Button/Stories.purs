@@ -6,7 +6,7 @@ import Data.Generic.Rep (class Generic)
 import React.Basic (JSX)
 import ShadCN.Button as Btn
 import Yoga.React (component)
-import Yoga.React.DOM.HTML (div)
+import Yoga.React.DOM.HTML (div, p)
 import Yoga.React.DOM.Internal (text)
 import YogaStories.Controls (enum)
 import YogaStories.Story (story) as S
@@ -37,8 +37,10 @@ sizeClass = case _ of
 
 mkButton :: { label :: String, variant :: Variant, size :: Size } -> JSX
 mkButton = component "ButtonStory" \props -> React.do
-  pure $ div { className: "flex items-center gap-4" }
-    [ Btn.btn (variantClass props.variant) (sizeClass props.size) (text props.label) ]
+  pure $ div { className: "flex flex-col gap-4" }
+    [ p { className: "text-muted-foreground text-sm" } (text "Displays a button or a component that looks like a button.")
+    , Btn.btn (variantClass props.variant) (sizeClass props.size) (text props.label)
+    ]
 
 default :: JSX
 default = S.story "default" mkButton
