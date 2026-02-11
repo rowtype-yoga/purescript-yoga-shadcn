@@ -1,4 +1,4 @@
-module ShadCN.Alert.Stories (story) where
+module ShadCN.Alert.Stories (default) where
 
 import Prelude
 
@@ -24,8 +24,8 @@ mkAlert = component "AlertStory" \props -> React.do
     , alertDescription props.description
     ]
 
-story :: JSX
-story = S.story "story" mkAlert
+default :: JSX
+default = S.story "default" mkAlert
   { title: "Heads up!"
   , description: "You can add components to your app using the CLI."
   , variant: enum Default

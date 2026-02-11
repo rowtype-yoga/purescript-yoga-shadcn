@@ -1,4 +1,4 @@
-module ShadCN.Typography.Stories (story) where
+module ShadCN.Typography.Stories (default) where
 
 import Prelude hiding (div)
 
@@ -31,5 +31,5 @@ mkTypography = component "TypographyStory" \_ -> React.do
     , typMuted (text "Muted text")
     ]
 
-story :: JSX
-story = S.story "story" mkTypography {}
+default :: JSX
+default = S.story "default" mkTypography {}

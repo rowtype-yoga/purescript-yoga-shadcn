@@ -1,4 +1,4 @@
-module ShadCN.AlertDialog.Stories (story) where
+module ShadCN.AlertDialog.Stories (default) where
 
 import Prelude
 
@@ -26,5 +26,5 @@ mkAlertDialog = component "AlertDialogStory" \_ -> React.do
         ]
     ]
 
-story :: JSX
-story = S.story "story" mkAlertDialog {}
+default :: JSX
+default = S.story "default" mkAlertDialog {}

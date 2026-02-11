@@ -1,4 +1,4 @@
-module ShadCN.Toast.Stories (story) where
+module ShadCN.Toast.Stories (default) where
 
 import Prelude hiding (div)
 
@@ -21,5 +21,5 @@ mkToast = component "ToastStory" \_ -> React.do
         ]
     ]
 
-story :: JSX
-story = S.story "story" mkToast {}
+default :: JSX
+default = S.story "default" mkToast {}

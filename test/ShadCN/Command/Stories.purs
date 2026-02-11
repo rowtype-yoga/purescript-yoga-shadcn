@@ -1,4 +1,4 @@
-module ShadCN.Command.Stories (story) where
+module ShadCN.Command.Stories (default) where
 
 import Prelude hiding (div)
 
@@ -30,5 +30,5 @@ mkCommand = component "CommandStory" \_ -> React.do
         ]
     ]
 
-story :: JSX
-story = S.story "story" mkCommand {}
+default :: JSX
+default = S.story "default" mkCommand {}

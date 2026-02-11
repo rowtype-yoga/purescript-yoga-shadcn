@@ -1,4 +1,4 @@
-module ShadCN.Button.Stories (story) where
+module ShadCN.Button.Stories (default) where
 
 import Prelude hiding (div)
 
@@ -40,8 +40,8 @@ mkButton = component "ButtonStory" \props -> React.do
   pure $ div { className: "flex items-center gap-4" }
     [ Btn.btn (variantClass props.variant) (sizeClass props.size) (text props.label) ]
 
-story :: JSX
-story = S.story "story" mkButton
+default :: JSX
+default = S.story "default" mkButton
   { label: "Click me"
   , variant: enum Default
   , size: enum Medium

@@ -1,4 +1,4 @@
-module ShadCN.Calendar.Stories (story) where
+module ShadCN.Calendar.Stories (default) where
 
 import Prelude hiding (div)
 
@@ -13,5 +13,5 @@ mkCalendar = component "CalendarStory" \_ -> React.do
   pure $ div { className: "max-w-sm" }
     [ calendar { mode: "single" } ]
 
-story :: JSX
-story = S.story "story" mkCalendar {}
+default :: JSX
+default = S.story "default" mkCalendar {}

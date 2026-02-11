@@ -1,4 +1,4 @@
-module ShadCN.Badge.Stories (story) where
+module ShadCN.Badge.Stories (default) where
 
 import Prelude
 
@@ -23,8 +23,8 @@ mkBadge = component "BadgeStory" \props -> React.do
       Outline -> Badge.badgeOutline
   pure $ badge $ props.label
 
-story :: JSX
-story = S.story "story" mkBadge
+default :: JSX
+default = S.story "default" mkBadge
   { label: "Badge"
   , variant: enum Default
   }

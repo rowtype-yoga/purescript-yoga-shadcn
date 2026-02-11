@@ -1,4 +1,4 @@
-module ShadCN.Card.Stories (story) where
+module ShadCN.Card.Stories (default) where
 
 import Prelude hiding (div)
 
@@ -27,8 +27,8 @@ mkCard = component "CardStory" \props -> React.do
         ]
     ]
 
-story :: JSX
-story = S.story "story" mkCard
+default :: JSX
+default = S.story "default" mkCard
   { title: "Notifications"
   , description: "You have 3 unread messages."
   , body: "Push notifications are enabled for this device."

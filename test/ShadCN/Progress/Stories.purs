@@ -1,4 +1,4 @@
-module ShadCN.Progress.Stories (story) where
+module ShadCN.Progress.Stories (default) where
 
 import Prelude hiding (div)
 
@@ -14,6 +14,6 @@ mkProgress = component "ProgressStory" \props -> React.do
   pure $ div { className: "w-64" }
     [ Progress.progress props.value ]
 
-story :: JSX
-story = S.story "story" mkProgress
+default :: JSX
+default = S.story "default" mkProgress
   { value: slider { value: 60.0, min: 0.0, max: 100.0, step: 1.0 } }
