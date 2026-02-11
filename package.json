@@ -2,7 +2,7 @@
   "name": "yoga-shadcn",
   "type": "module",
   "bin": {
-    "yoga-shadcn": "./cli/index.js"
+    "yoga-shadcn": "./cli/run.js"
   },
   "dependencies": {
     "@fastify/cors": "^11.2.0",

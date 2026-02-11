@@ -31,6 +31,15 @@ package:
       - js-promise
       - js-promise-aff
       - console
+      - either
+      - foldable-traversable
+      - node-child-process
+      - node-fs
+      - node-path
+      - node-process
+      - ordered-collections
+      - yoga-fetch-om
+      - yoga-om
   publish:
     version: 1.0.3
     license: WTFPL
@@ -47,5 +56,10 @@ workspace:
       path: /Users/mark/Developer/purescript-yoga-stories
     yoga-fastify:
       path: /Users/mark/Developer/purescript-yoga-fastify
-    yoga-http-api: "0.1.4"
+    yoga-http-api: "0.1.6"
     yoga-options: "0.1.0"
+    yoga-om: "1.2.2"
+    yoga-om-layer: "1.0.6"
+    yoga-fetch-om:
+      path: /Users/mark/Developer/purescript-yoga-fetch-om
+    yoga-json: "5.2.0"
