@@ -2,6 +2,17 @@ module ShadCN.Radix where
 
 import React.Basic (ReactComponent)
 
+-- AlertDialog
+foreign import alertDialogRoot :: forall r. ReactComponent { | r }
+foreign import alertDialogTrigger :: forall r. ReactComponent { | r }
+foreign import alertDialogPortal :: forall r. ReactComponent { | r }
+foreign import alertDialogOverlay :: forall r. ReactComponent { | r }
+foreign import alertDialogContent :: forall r. ReactComponent { | r }
+foreign import alertDialogTitle :: forall r. ReactComponent { | r }
+foreign import alertDialogDescription :: forall r. ReactComponent { | r }
+foreign import alertDialogAction :: forall r. ReactComponent { | r }
+foreign import alertDialogCancel :: forall r. ReactComponent { | r }
+
 -- Accordion
 foreign import accordionRoot :: forall r. ReactComponent { | r }
 foreign import accordionItem :: forall r. ReactComponent { | r }
@@ -143,6 +154,15 @@ foreign import toggleRoot :: forall r. ReactComponent { | r }
 -- ToggleGroup
 foreign import toggleGroupRoot :: forall r. ReactComponent { | r }
 foreign import toggleGroupItem :: forall r. ReactComponent { | r }
+
+-- Toast
+foreign import toastProvider :: forall r. ReactComponent { | r }
+foreign import toastRoot :: forall r. ReactComponent { | r }
+foreign import toastAction :: forall r. ReactComponent { | r }
+foreign import toastClose :: forall r. ReactComponent { | r }
+foreign import toastTitle :: forall r. ReactComponent { | r }
+foreign import toastDescription :: forall r. ReactComponent { | r }
+foreign import toastViewport :: forall r. ReactComponent { | r }
 
 -- Tooltip
 foreign import tooltipProvider :: forall r. ReactComponent { | r }
