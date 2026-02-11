@@ -1,5 +1,5 @@
 {
   "outputDir": "./output",
-  "include": ["**.Stories"],
+  "include": ["ShadCN.**.Stories"],
   "exclude": []
 }

@@ -16,16 +16,21 @@ package:
     - web-dom: ">=6.0.0 <7.0.0"
     - yoga-react: ">=1.0.1 <2.0.0"
     - yoga-react-dom: ">=1.0.3 <2.0.0"
-    - yoga-json
-    - web-html
-    - web-events
-    - record
-    - newtype
-    - strings
-    - foreign
-    - aff
-    - js-promise
-    - js-promise-aff
+  test:
+    main: Test.Main
+    dependencies:
+      - yoga-stories
+      - yoga-json
+      - web-html
+      - web-events
+      - record
+      - newtype
+      - strings
+      - foreign
+      - aff
+      - js-promise
+      - js-promise-aff
+      - console
   publish:
     version: 1.0.3
     license: WTFPL
@@ -38,3 +43,9 @@ workspace:
   extraPackages:
     yoga-react: "1.0.1"
     yoga-react-dom: "1.0.3"
+    yoga-stories:
+      path: /Users/mark/Developer/purescript-yoga-stories
+    yoga-fastify:
+      path: /Users/mark/Developer/purescript-yoga-fastify
+    yoga-http-api: "0.1.4"
+    yoga-options: "0.1.0"
