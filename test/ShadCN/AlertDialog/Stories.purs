@@ -1,4 +1,4 @@
-module ShadCN.AlertDialog.Stories (demo) where
+module ShadCN.AlertDialog.Stories (story) where
 
 import Prelude
 
@@ -7,7 +7,7 @@ import ShadCN.AlertDialog (alertDialog, alertDialogAction, alertDialogCancel, al
 import ShadCN.Button as Btn
 import Yoga.React (component)
 import Yoga.React.DOM.Internal (text)
-import YogaStories.Story (story)
+import YogaStories.Story (story) as S
 
 mkAlertDialog :: {} -> JSX
 mkAlertDialog = component "AlertDialogStory" \_ -> React.do
@@ -26,5 +26,5 @@ mkAlertDialog = component "AlertDialogStory" \_ -> React.do
         ]
     ]
 
-demo :: JSX
-demo = story "demo" mkAlertDialog {}
+story :: JSX
+story = S.story "story" mkAlertDialog {}

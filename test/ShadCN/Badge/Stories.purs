@@ -1,4 +1,4 @@
-module ShadCN.Badge.Stories (primary, destructive) where
+module ShadCN.Badge.Stories (story) where
 
 import Prelude
 
@@ -7,7 +7,7 @@ import React.Basic (JSX)
 import ShadCN.Badge as Badge
 import Yoga.React (component)
 import YogaStories.Controls (enum)
-import YogaStories.Story (story)
+import YogaStories.Story (story) as S
 
 data Variant = Default | Secondary | Destructive | Outline
 
@@ -23,14 +23,8 @@ mkBadge = component "BadgeStory" \props -> React.do
       Outline -> Badge.badgeOutline
   pure $ badge $ props.label
 
-primary :: JSX
-primary = story "primary" mkBadge
+story :: JSX
+story = S.story "story" mkBadge
   { label: "Badge"
   , variant: enum Default
-  }
-
-destructive :: JSX
-destructive = story "destructive" mkBadge
-  { label: "Error"
-  , variant: enum Destructive
   }

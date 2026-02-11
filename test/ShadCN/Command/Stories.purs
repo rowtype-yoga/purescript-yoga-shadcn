@@ -1,4 +1,4 @@
-module ShadCN.Command.Stories (demo) where
+module ShadCN.Command.Stories (story) where
 
 import Prelude hiding (div)
 
@@ -7,7 +7,7 @@ import ShadCN.Command (command, commandEmpty, commandGroup, commandItem, command
 import Yoga.React (component)
 import Yoga.React.DOM.HTML (div)
 import Yoga.React.DOM.Internal (text)
-import YogaStories.Story (story)
+import YogaStories.Story (story) as S
 
 mkCommand :: {} -> JSX
 mkCommand = component "CommandStory" \_ -> React.do
@@ -30,5 +30,5 @@ mkCommand = component "CommandStory" \_ -> React.do
         ]
     ]
 
-demo :: JSX
-demo = story "demo" mkCommand {}
+story :: JSX
+story = S.story "story" mkCommand {}

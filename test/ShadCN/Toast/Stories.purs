@@ -1,4 +1,4 @@
-module ShadCN.Toast.Stories (demo) where
+module ShadCN.Toast.Stories (story) where
 
 import Prelude hiding (div)
 
@@ -7,7 +7,7 @@ import ShadCN.Toast (toast, toastDescription, toastProvider, toastTitle, toastVi
 import Yoga.React (component)
 import Yoga.React.DOM.HTML (div)
 import Yoga.React.DOM.Internal (text)
-import YogaStories.Story (story)
+import YogaStories.Story (story) as S
 
 mkToast :: {} -> JSX
 mkToast = component "ToastStory" \_ -> React.do
@@ -21,5 +21,5 @@ mkToast = component "ToastStory" \_ -> React.do
         ]
     ]
 
-demo :: JSX
-demo = story "demo" mkToast {}
+story :: JSX
+story = S.story "story" mkToast {}

@@ -1,4 +1,4 @@
-module ShadCN.Typography.Stories (demo) where
+module ShadCN.Typography.Stories (story) where
 
 import Prelude hiding (div)
 
@@ -7,7 +7,7 @@ import ShadCN.Typography (typBlockquote, typH1, typH2, typH3, typH4, typInlineCo
 import Yoga.React (component)
 import Yoga.React.DOM.HTML (div, li)
 import Yoga.React.DOM.Internal (text)
-import YogaStories.Story (story)
+import YogaStories.Story (story) as S
 
 mkTypography :: {} -> JSX
 mkTypography = component "TypographyStory" \_ -> React.do
@@ -31,5 +31,5 @@ mkTypography = component "TypographyStory" \_ -> React.do
     , typMuted (text "Muted text")
     ]
 
-demo :: JSX
-demo = story "demo" mkTypography {}
+story :: JSX
+story = S.story "story" mkTypography {}

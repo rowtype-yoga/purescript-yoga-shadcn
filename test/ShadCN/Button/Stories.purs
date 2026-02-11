@@ -1,4 +1,4 @@
-module ShadCN.Button.Stories (primary, destructive) where
+module ShadCN.Button.Stories (story) where
 
 import Prelude hiding (div)
 
@@ -9,12 +9,14 @@ import Yoga.React (component)
 import Yoga.React.DOM.HTML (div)
 import Yoga.React.DOM.Internal (text)
 import YogaStories.Controls (enum)
-import YogaStories.Story (story)
+import YogaStories.Story (story) as S
 
 data Variant = Default | Destructive | Outline | Secondary | Ghost | Link
+
 derive instance Generic Variant _
 
 data Size = Medium | Small | Large | ExtraSmall
+
 derive instance Generic Size _
 
 variantClass :: Variant -> String
@@ -38,16 +40,9 @@ mkButton = component "ButtonStory" \props -> React.do
   pure $ div { className: "flex items-center gap-4" }
     [ Btn.btn (variantClass props.variant) (sizeClass props.size) (text props.label) ]
 
-primary :: JSX
-primary = story "primary" mkButton
+story :: JSX
+story = S.story "story" mkButton
   { label: "Click me"
   , variant: enum Default
-  , size: enum Medium
-  }
-
-destructive :: JSX
-destructive = story "destructive" mkButton
-  { label: "Delete"
-  , variant: enum Destructive
   , size: enum Medium
   }

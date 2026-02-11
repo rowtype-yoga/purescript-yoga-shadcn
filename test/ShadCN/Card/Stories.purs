@@ -1,4 +1,4 @@
-module ShadCN.Card.Stories (basic, minimal) where
+module ShadCN.Card.Stories (story) where
 
 import Prelude hiding (div)
 
@@ -9,7 +9,7 @@ import ShadCN.Card (card, cardContent, cardDescription, cardFooter, cardHeader, 
 import Yoga.React (component)
 import Yoga.React.DOM.HTML (div, p)
 import Yoga.React.DOM.Internal (text)
-import YogaStories.Story (story)
+import YogaStories.Story (story) as S
 
 mkCard :: { title :: String, description :: String, body :: String, footer :: Maybe String } -> JSX
 mkCard = component "CardStory" \props -> React.do
@@ -27,18 +27,10 @@ mkCard = component "CardStory" \props -> React.do
         ]
     ]
 
-basic :: JSX
-basic = story "basic" mkCard
+story :: JSX
+story = S.story "story" mkCard
   { title: "Notifications"
   , description: "You have 3 unread messages."
   , body: "Push notifications are enabled for this device."
   , footer: Just "Mark all as read"
-  }
-
-minimal :: JSX
-minimal = story "minimal" mkCard
-  { title: "Simple Card"
-  , description: "A minimal card example."
-  , body: "Cards group related content together."
-  , footer: Nothing :: Maybe String
   }
