@@ -16,6 +16,16 @@ package:
     - web-dom: ">=6.0.0 <7.0.0"
     - yoga-react: ">=1.0.1 <2.0.0"
     - yoga-react-dom: ">=1.0.3 <2.0.0"
+    - yoga-json
+    - web-html
+    - web-events
+    - record
+    - newtype
+    - strings
+    - foreign
+    - aff
+    - js-promise
+    - js-promise-aff
   publish:
     version: 1.0.3
     license: WTFPL
