@@ -43,7 +43,7 @@ package:
       - yoga-om
       - yoga-om-strom
   publish:
-    version: 1.0.3
+    version: 1.0.4
     license: WTFPL
     location:
       githubOwner: rowtype-yoga
