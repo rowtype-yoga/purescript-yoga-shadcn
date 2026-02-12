@@ -39,7 +39,9 @@ package:
       - node-process
       - ordered-collections
       - yoga-fetch-om
+      - arraybuffer-types
       - yoga-om
+      - yoga-om-strom
   publish:
     version: 1.0.3
     license: WTFPL
@@ -56,10 +58,13 @@ workspace:
       path: /Users/mark/Developer/purescript-yoga-stories
     yoga-fastify:
       path: /Users/mark/Developer/purescript-yoga-fastify
-    yoga-http-api: "0.1.6"
+    yoga-http-api:
+      path: /Users/mark/Developer/purescript-yoga-http-api
     yoga-options: "0.1.0"
-    yoga-om: "1.2.2"
+    yoga-om:
+      path: /Users/mark/Developer/purescript-yoga-om
     yoga-om-layer: "1.0.6"
     yoga-fetch-om:
       path: /Users/mark/Developer/purescript-yoga-fetch-om
     yoga-json: "5.2.0"
+    yoga-om-strom: "0.2.0"

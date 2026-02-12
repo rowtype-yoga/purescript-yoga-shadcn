@@ -4,43 +4,72 @@ import Prelude
 
 import CLI.Registry (Registry)
 import Data.Either (Either(..))
-import Effect.Class (liftEffect)
+import Data.Foldable (fold)
 import Effect.Exception (throw) as Exception
-import JS.Fetch as Fetch
-import JS.Fetch.Request as Request
-import JS.Fetch.Response as Response
 import Node.Encoding (Encoding(..))
 import Node.FS.Sync as FS
-import Promise.Aff as Promise
-import Yoga.JSON (readJSON)
-import Yoga.Om (Om, fromAff)
+import Yoga.Fetch.Om (GET, Route, Path, PlainText, Streaming, type (/), type (:), client, plainText)
+import Yoga.JSON as JSON
+import Yoga.Om (class ToOm, Om, toOm)
+import Yoga.Om.Strom (Strom)
+import Yoga.Om.Strom as Strom
+
+type GitHubAPI =
+  { getRegistry ::
+      Route GET
+        (Path ("cli" / "registry.json"))
+        {}
+        ( ok :: { body :: Registry }
+        )
+  , getFile ::
+      Route GET
+        (Path ("src" / "ShadCN" / "filename" : String))
+        {}
+        ( ok :: { body :: PlainText }
+        )
+  , streamFile ::
+      Route GET
+        (Path ("src" / "ShadCN" / "filename" : String))
+        {}
+        ( ok :: { body :: Streaming String }
+        )
+  }
 
 baseUrl :: String
 baseUrl = "https://raw.githubusercontent.com/rowtype-yoga/purescript-yoga-shadcn/main"
 
-fetchText :: forall ctx err. String -> Om ctx err String
-fetchText url = fromAff do
-  req <- liftEffect $ Request.new url {}
-  resp <- Promise.toAffE (Fetch.fetch req)
-  let status = Response.status resp
-  when (status /= 200) do
-    liftEffect $ Exception.throw ("HTTP " <> show status <> ": " <> url)
-  Promise.toAffE (Response.text resp)
+github
+  :: forall ctx err
+   . { getRegistry :: Om ctx err Registry
+     , getFile :: { filename :: String } -> Om ctx err PlainText
+     , streamFile :: { filename :: String } -> Om ctx err (Strom {} () String)
+     }
+github = client @GitHubAPI baseUrl
 
 fetchFile :: forall ctx err. String -> Om ctx err String
-fetchFile path = do
-  localExists <- liftEffect (FS.exists path)
-  if localExists then liftEffect (FS.readTextFile UTF8 path)
-  else fetchText (baseUrl <> "/" <> path)
+fetchFile filename = do
+  let localPath = "src/ShadCN/" <> filename
+  localExists <- FS.exists localPath # toOm
+  if localExists then FS.readTextFile UTF8 localPath # toOm
+  else plainText <$> github.getFile { filename }
+
+fetchFileStreaming :: String -> Om {} () String
+fetchFileStreaming filename = do
+  let localPath = "src/ShadCN/" <> filename
+  localExists <- FS.exists localPath # toOm
+  if localExists then FS.readTextFile UTF8 localPath # toOm
+  else do
+    strom <- github.streamFile { filename }
+    chunks <- Strom.runCollect strom
+    pure (fold chunks)
 
 fetchRegistry :: forall ctx err. Om ctx err Registry
 fetchRegistry = do
-  text <- readRegistryText
-  case readJSON text of
-    Right registry -> pure registry
-    Left err -> liftEffect (Exception.throw ("Failed to parse registry: " <> show err))
-  where
-  readRegistryText = do
-    localExists <- liftEffect (FS.exists "cli/registry.json")
-    if localExists then liftEffect (FS.readTextFile UTF8 "cli/registry.json")
-    else fetchText (baseUrl <> "/cli/registry.json")
+  localExists <- FS.exists "cli/registry.json" # toOm
+  if localExists then do
+    text <- FS.readTextFile UTF8 "cli/registry.json" # toOm
+    case JSON.readJSON text of
+      Right registry -> pure registry
+      Left err -> Exception.throw ("Failed to parse registry: " <> show err) # toOm
+  else
+    github.getRegistry

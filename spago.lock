@@ -55,6 +55,7 @@
         "test": {
           "dependencies": [
             "aff",
+            "arraybuffer-types",
             "console",
             "either",
             "foldable-traversable",
@@ -74,6 +75,7 @@
             "yoga-fetch-om",
             "yoga-json",
             "yoga-om",
+            "yoga-om-strom",
             "yoga-stories"
           ]
         }
@@ -677,10 +679,15 @@
       "yoga-fetch-om": {
         "path": "/Users/mark/Developer/purescript-yoga-fetch-om"
       },
-      "yoga-http-api": "0.1.6",
+      "yoga-http-api": {
+        "path": "/Users/mark/Developer/purescript-yoga-http-api"
+      },
       "yoga-json": "5.2.0",
-      "yoga-om": "1.2.2",
+      "yoga-om": {
+        "path": "/Users/mark/Developer/purescript-yoga-om"
+      },
       "yoga-om-layer": "1.0.6",
+      "yoga-om-strom": "0.2.0",
       "yoga-options": "0.1.0",
       "yoga-react": "1.0.1",
       "yoga-react-dom": "1.0.3",
@@ -724,6 +731,16 @@
         "foreign",
         "prelude",
         "transformers"
+      ]
+    },
+    "ansi": {
+      "type": "registry",
+      "version": "7.0.0",
+      "integrity": "sha256-tOUaXJFzPSfBVAqLI8hc+Tz2M1rg16cXqyHaK/3SmFg=",
+      "dependencies": [
+        "foldable-traversable",
+        "lists",
+        "prelude"
       ]
     },
     "arraybuffer-types": {
@@ -992,6 +1009,16 @@
       "version": "0.1.0",
       "integrity": "sha256-YYLWpHQwJ1zKmPxLo7sZOk+kYuKOpOpRhdz9vwI/p7Q=",
       "dependencies": []
+    },
+    "fork": {
+      "type": "registry",
+      "version": "6.0.0",
+      "integrity": "sha256-0keBVeZZg1eCZEy/En1CohVW829gQUqKtqBNIRa93/A=",
+      "dependencies": [
+        "aff",
+        "prelude",
+        "transformers"
+      ]
     },
     "free": {
       "type": "registry",
@@ -1265,6 +1292,23 @@
       "dependencies": [
         "newtype",
         "prelude"
+      ]
+    },
+    "mmorph": {
+      "type": "registry",
+      "version": "7.0.0",
+      "integrity": "sha256-Cfltaq+tfYjuSoSBN/b8cSQZbvZTqIRs6ebQewbIkGs=",
+      "dependencies": [
+        "bifunctors",
+        "either",
+        "free",
+        "functors",
+        "identity",
+        "maybe",
+        "newtype",
+        "prelude",
+        "transformers",
+        "tuples"
       ]
     },
     "newtype": {
@@ -1577,6 +1621,27 @@
       "integrity": "sha256-mdrlJBAgFMh79hNRW39uv7c+BwnnaOrAMmdh7+VhEhs=",
       "dependencies": []
     },
+    "pipes": {
+      "type": "registry",
+      "version": "8.0.0",
+      "integrity": "sha256-dtUNpG8BGVr7pu6mQZyAnUAftUHgNS7f0QH3Kw5UTpQ=",
+      "dependencies": [
+        "aff",
+        "control",
+        "effect",
+        "either",
+        "foldable-traversable",
+        "identity",
+        "lists",
+        "maybe",
+        "mmorph",
+        "newtype",
+        "prelude",
+        "tailrec",
+        "transformers",
+        "tuples"
+      ]
+    },
     "posix-types": {
       "type": "registry",
       "version": "6.0.0",
@@ -1710,6 +1775,40 @@
       "integrity": "sha256-EJrxtKt5xC7TYjBZrSBO/J7Aw3DmtilYjt4olpAXWVc=",
       "dependencies": [
         "unsafe-coerce"
+      ]
+    },
+    "spec": {
+      "type": "registry",
+      "version": "8.1.1",
+      "integrity": "sha256-b6qjDb7lUJGLV+WEoywLu6BCXC4zGpfbN43mTL+vBeI=",
+      "dependencies": [
+        "aff",
+        "ansi",
+        "arrays",
+        "avar",
+        "bifunctors",
+        "control",
+        "datetime",
+        "effect",
+        "either",
+        "exceptions",
+        "foldable-traversable",
+        "fork",
+        "identity",
+        "integers",
+        "lists",
+        "maybe",
+        "newtype",
+        "now",
+        "ordered-collections",
+        "parallel",
+        "pipes",
+        "prelude",
+        "refs",
+        "strings",
+        "tailrec",
+        "transformers",
+        "tuples"
       ]
     },
     "st": {
@@ -2064,6 +2163,7 @@
       "path": "/Users/mark/Developer/purescript-yoga-fetch-om",
       "dependencies": [
         "aff",
+        "arraybuffer-types",
         "arrays",
         "effect",
         "either",
@@ -2082,13 +2182,13 @@
         "variant",
         "yoga-http-api",
         "yoga-json",
-        "yoga-om"
+        "yoga-om",
+        "yoga-om-strom"
       ]
     },
     "yoga-http-api": {
-      "type": "registry",
-      "version": "0.1.6",
-      "integrity": "sha256-wI2aiM7S99gq7pPCBI8ijemMNV5vqjToLHVLr9nCtog=",
+      "type": "local",
+      "path": "/Users/mark/Developer/purescript-yoga-http-api",
       "dependencies": [
         "aff",
         "arrays",
@@ -2151,9 +2251,8 @@
       ]
     },
     "yoga-om": {
-      "type": "registry",
-      "version": "1.2.2",
-      "integrity": "sha256-uDV3/o8mUOTIgSEQFqIATPyladzL8BcjURvfS901hgI=",
+      "type": "local",
+      "path": "/Users/mark/Developer/purescript-yoga-om",
       "dependencies": [
         "aff",
         "avar",
@@ -2177,6 +2276,37 @@
         "uncurried-transformers",
         "unsafe-coerce",
         "variant"
+      ]
+    },
+    "yoga-om-strom": {
+      "type": "registry",
+      "version": "0.2.0",
+      "integrity": "sha256-WMrhLQ71RFObD4Vv/X5qef+uIkJ4zgCv/K8l986g1wE=",
+      "dependencies": [
+        "aff",
+        "arrays",
+        "avar",
+        "catenable-lists",
+        "console",
+        "control",
+        "datetime",
+        "effect",
+        "either",
+        "exceptions",
+        "foldable-traversable",
+        "integers",
+        "lists",
+        "maybe",
+        "now",
+        "prelude",
+        "refs",
+        "spec",
+        "st",
+        "tailrec",
+        "transformers",
+        "tuples",
+        "variant",
+        "yoga-om"
       ]
     },
     "yoga-options": {

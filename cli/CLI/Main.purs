@@ -51,7 +51,7 @@ listCmd = do
   Console.log ""
   Console.log $ show (Array.length (Registry.listComponents registry)) <> " components"
 
-addCmd :: forall ctx. Array String -> Om ctx () Unit
+addCmd :: Array String -> Om {} () Unit
 addCmd names = do
   Console.log "Fetching registry..."
   registry <- GitHub.fetchRegistry
@@ -71,7 +71,7 @@ addCmd names = do
   where
   installFiles files =
     for_ files \file -> do
-      content <- GitHub.fetchFile ("src/ShadCN/" <> file)
+      content <- GitHub.fetchFileStreaming file
       result <- Install.writeFile ("src/ShadCN/" <> file) content
       if result.written then Console.log $ "  Copied: src/ShadCN/" <> file
       else Console.log $ "  Exists: src/ShadCN/" <> file
