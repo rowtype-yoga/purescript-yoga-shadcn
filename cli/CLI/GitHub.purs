@@ -52,7 +52,7 @@ fetchFileStreaming filename = do
   else do
     strom <- github.streamFile { filename }
     chunks <- Strom.runCollect strom
-    pure (fold chunks)
+    pure $ fold chunks
 
 fetchRegistry :: forall ctx err. Om ctx err Registry
 fetchRegistry = do
