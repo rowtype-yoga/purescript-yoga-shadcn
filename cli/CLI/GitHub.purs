@@ -8,7 +8,7 @@ import Data.Foldable (fold)
 import Effect.Exception (throw) as Exception
 import Node.Encoding (Encoding(..))
 import Node.FS.Sync as FS
-import Yoga.Fetch.Om (GET, Route, Path, PlainText, Streaming, type (/), type (:), client, plainText)
+import Yoga.Fetch.Om (GET, Route, PlainText, Streaming, type (/), type (:), client, plainText)
 import Yoga.JSON as JSON
 import Yoga.Om (class ToOm, Om, toOm)
 import Yoga.Om.Strom (Strom)
@@ -16,23 +16,14 @@ import Yoga.Om.Strom as Strom
 
 type GitHubAPI =
   { getRegistry ::
-      Route GET
-        (Path ("cli" / "registry.json"))
-        {}
-        ( ok :: { body :: Registry }
-        )
+      Route GET ("cli" / "registry.json") {}
+        (ok :: { body :: Registry })
   , getFile ::
-      Route GET
-        (Path ("src" / "ShadCN" / "filename" : String))
-        {}
-        ( ok :: { body :: PlainText }
-        )
+      Route GET ("src" / "ShadCN" / "filename" : String) {}
+        (ok :: { body :: PlainText })
   , streamFile ::
-      Route GET
-        (Path ("src" / "ShadCN" / "filename" : String))
-        {}
-        ( ok :: { body :: Streaming String }
-        )
+      Route GET ("src" / "ShadCN" / "filename" : String) {}
+        (ok :: { body :: Streaming String })
   }
 
 baseUrl :: String
