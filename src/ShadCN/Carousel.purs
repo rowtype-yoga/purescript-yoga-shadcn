@@ -19,6 +19,7 @@ import React.Basic.Hooks as React
 import Unsafe.Coerce (unsafeCoerce)
 import Web.DOM.Internal.Types (Node)
 import Yoga.React.DOM.HTML (button, div)
+import Yoga.React.DOM.Attributes (reactRef)
 import Yoga.React.DOM.Internal (class IsJSX, createElement)
 
 foreign import useEmblaCarouselImpl :: forall a. EffectFn2 (Ref (Nullable Node) -> Nullable EmblaApi -> a) { | EmblaOptions } a
@@ -110,7 +111,7 @@ carouselViewportImpl = unsafeCoerce carouselViewportImpl_
   carouselViewportImpl_ :: React.ReactComponent { children :: React.ReactChildren JSX }
   carouselViewportImpl_ = unsafePerformEffect $ React.reactComponentWithChildren "CarouselViewport" \props -> React.do
     ctx <- React.useContext carouselContext
-    pure $ div { className: "overflow-hidden", ref: ctx.ref } (React.reactChildrenToArray props.children)
+    pure $ div { className: "overflow-hidden", ref: reactRef ctx.ref } (React.reactChildrenToArray props.children)
 
 carouselItem :: forall kids. IsJSX kids => kids -> JSX
 carouselItem = div { className: "min-w-0 shrink-0 grow-0 basis-full", role: "group" }

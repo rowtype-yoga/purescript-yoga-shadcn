@@ -33,7 +33,7 @@ alertDialogDescription :: forall kids. IsJSX kids => kids -> JSX
 alertDialogDescription = createElement Radix.alertDialogDescription { className: "text-muted-foreground text-sm" }
 
 alertDialogAction :: forall kids. IsJSX kids => kids -> JSX
-alertDialogAction = createElement Radix.alertDialogAction { className: Btn.base <> " " <> Btn.default <> " " <> Btn.md }
+alertDialogAction = createElement Radix.alertDialogAction { className: Btn.btnCls Btn.default Btn.md }
 
 alertDialogCancel :: forall kids. IsJSX kids => kids -> JSX
-alertDialogCancel = createElement Radix.alertDialogCancel { className: Btn.base <> " " <> Btn.outline <> " " <> Btn.md <> " mt-2 sm:mt-0" }
+alertDialogCancel = createElement Radix.alertDialogCancel { className: Btn.btnCls Btn.outline Btn.md <> " mt-2 sm:mt-0" }
