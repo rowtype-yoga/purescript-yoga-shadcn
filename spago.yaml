@@ -48,23 +48,4 @@ package:
     location:
       githubOwner: rowtype-yoga
       githubRepo: purescript-yoga-shadcn
-workspace:
-  packageSet:
-    registry: 73.0.0
-  extraPackages:
-    yoga-react: "1.0.1"
-    yoga-react-dom: "1.0.3"
-    yoga-stories:
-      path: /Users/mark/Developer/purescript-yoga-stories
-    yoga-fastify:
-      path: /Users/mark/Developer/purescript-yoga-fastify
-    yoga-http-api:
-      path: /Users/mark/Developer/purescript-yoga-http-api
-    yoga-options: "0.1.0"
-    yoga-om:
-      path: /Users/mark/Developer/purescript-yoga-om
-    yoga-om-layer: "1.0.6"
-    yoga-fetch-om:
-      path: /Users/mark/Developer/purescript-yoga-fetch-om
-    yoga-json: "5.2.0"
-    yoga-om-strom: "0.2.0"
+workspace: {}
