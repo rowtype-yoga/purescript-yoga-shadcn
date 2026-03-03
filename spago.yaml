@@ -19,7 +19,6 @@ package:
   test:
     main: Test.Main
     dependencies:
-      - yoga-stories
       - yoga-json
       - web-html
       - web-events
@@ -38,10 +37,7 @@ package:
       - node-path
       - node-process
       - ordered-collections
-      - yoga-fetch-om
       - arraybuffer-types
-      - yoga-om
-      - yoga-om-strom
   publish:
     version: 1.0.5
     license: WTFPL
