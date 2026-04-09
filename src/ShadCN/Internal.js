@@ -1,6 +1,8 @@
 import { twMerge } from "tailwind-merge";
 import { clsx } from "clsx";
 
+export function el(tag) { return tag; }
+
 export function mergeProps(defaults) {
   return function (userProps) {
     var _a = defaults.className;

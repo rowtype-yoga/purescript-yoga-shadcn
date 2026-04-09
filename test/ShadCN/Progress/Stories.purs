@@ -15,7 +15,7 @@ mkProgress = component "ProgressStory" \props -> React.do
   pure $ div { className: "flex flex-col gap-4" }
     [ p { className: "text-muted-foreground text-sm" } (text "Displays an indicator showing the completion progress of a task, typically as a progress bar.")
     , div { className: "w-64" }
-        [ Progress.progress props.value ]
+        [ Progress.progress props.value {} ]
     ]
 
 default :: JSX

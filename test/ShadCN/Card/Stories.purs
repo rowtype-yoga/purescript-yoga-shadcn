@@ -14,14 +14,14 @@ mkCard = component "CardStory" \_ -> React.do
   pure $ div { className: "flex flex-col gap-4" }
     [ p { className: "text-muted-foreground text-sm" } (text "Displays a card with header, content, and footer.")
     , div { className: "max-w-sm" }
-        [ card
-            [ cardHeader
-                [ cardTitle (text "Card Title")
-                , cardDescription (text "Card Description")
+        [ card {}
+            [ cardHeader {}
+                [ cardTitle {} (text "Card Title")
+                , cardDescription {} (text "Card Description")
                 ]
-            , cardContent
+            , cardContent {}
                 [ p {} (text "Card Content") ]
-            , cardFooter
+            , cardFooter {}
                 [ p {} (text "Card Footer") ]
             ]
         ]

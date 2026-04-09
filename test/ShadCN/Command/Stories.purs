@@ -14,20 +14,20 @@ mkCommand = component "CommandStory" \_ -> React.do
   pure $ div { className: "flex flex-col gap-4" }
     [ p { className: "text-muted-foreground text-sm" } (text "Command menu for search and quick actions.")
     , div { className: "max-w-sm rounded-lg border" }
-        [ command
-            [ commandInput "Type a command or search..."
-            , commandList
-                [ commandEmpty (text "No results found.")
-                , commandGroup "Suggestions"
-                    [ commandItem (text "Calendar")
-                    , commandItem (text "Search Emoji")
-                    , commandItem (text "Calculator")
+        [ command {}
+            [ commandInput "Type a command or search..." {}
+            , commandList {}
+                [ commandEmpty {} (text "No results found.")
+                , commandGroup "Suggestions" {}
+                    [ commandItem {} (text "Calendar")
+                    , commandItem {} (text "Search Emoji")
+                    , commandItem {} (text "Calculator")
                     ]
-                , commandSeparator
-                , commandGroup "Settings"
-                    [ commandItem (text "Profile")
-                    , commandItem (text "Billing")
-                    , commandItem (text "Settings")
+                , commandSeparator {}
+                , commandGroup "Settings" {}
+                    [ commandItem {} (text "Profile")
+                    , commandItem {} (text "Billing")
+                    , commandItem {} (text "Settings")
                     ]
                 ]
             ]

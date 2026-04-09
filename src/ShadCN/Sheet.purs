@@ -2,8 +2,7 @@ module ShadCN.Sheet where
 
 import Prelude
 import React.Basic (JSX)
-import ShadCN.Internal (mergeProps)
-import Yoga.React.DOM.HTML (div)
+import ShadCN.Internal (el, mergeProps)
 import Yoga.React.DOM.Internal (class IsJSX, createElement)
 import ShadCN.Radix as Radix
 
@@ -25,10 +24,10 @@ sheetContent side props kids = createElement Radix.dialogPortal {}
   sideClass _ = "data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-3/4 border-l sm:max-w-sm"
 
 sheetHeader :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
-sheetHeader props = div (mergeProps { className: "flex flex-col gap-1.5 p-4" } props)
+sheetHeader props = createElement (el "div") (mergeProps { className: "flex flex-col gap-1.5 p-4" } props)
 
 sheetFooter :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
-sheetFooter props = div (mergeProps { className: "mt-auto flex flex-col gap-2 p-4" } props)
+sheetFooter props = createElement (el "div") (mergeProps { className: "mt-auto flex flex-col gap-2 p-4" } props)
 
 sheetTitle :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
 sheetTitle props = createElement Radix.dialogTitle (mergeProps { className: "text-foreground font-semibold" } props)

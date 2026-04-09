@@ -1,8 +1,7 @@
 module ShadCN.Command where
 
 import React.Basic (JSX, ReactComponent)
-import ShadCN.Internal (mergeProps)
-import Yoga.React.DOM.HTML (div, span)
+import ShadCN.Internal (el, mergeProps)
 import Yoga.React.DOM.Internal (class IsJSX, createElement)
 
 foreign import commandRoot_ :: forall r. ReactComponent { | r }
@@ -18,7 +17,7 @@ command :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
 command props = createElement commandRoot_ (mergeProps { className: "flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground" } props)
 
 commandInput :: forall r. String -> { | r } -> JSX
-commandInput placeholder props = div { className: "flex items-center border-b px-3" }
+commandInput placeholder props = createElement (el "div") { className: "flex items-center border-b px-3" }
   [ createElement commandInput_ (mergeProps { className: "flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50", placeholder } props) ([] :: Array JSX) ]
 
 commandList :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
@@ -37,4 +36,4 @@ commandSeparator :: forall r. { | r } -> JSX
 commandSeparator props = createElement commandSeparator_ (mergeProps { className: "-mx-1 h-px bg-border" } props) ([] :: Array JSX)
 
 commandShortcut :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
-commandShortcut props = span (mergeProps { className: "ml-auto text-xs tracking-widest text-muted-foreground" } props)
+commandShortcut props = createElement (el "span") (mergeProps { className: "ml-auto text-xs tracking-widest text-muted-foreground" } props)

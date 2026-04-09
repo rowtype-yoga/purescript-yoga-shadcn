@@ -16,7 +16,7 @@ import React.Basic (JSX, ReactContext, Ref, createContext, provider)
 import React.Basic.Events (handler_)
 import React.Basic.Hooks (Hook, unsafeHook)
 import React.Basic.Hooks as React
-import ShadCN.Internal (mergeProps)
+import ShadCN.Internal (el, mergeProps)
 import Unsafe.Coerce (unsafeCoerce)
 import Web.DOM.Internal.Types (Node)
 import Yoga.React.DOM.HTML (button, div)
@@ -71,7 +71,7 @@ carouselContext = unsafePerformEffect do
 
 carousel :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
 carousel props kids = createElement carouselProviderImpl {}
-  [ div (mergeProps { className: "relative", role: "region" } props)
+  [ createElement (el "div") (mergeProps { className: "relative", role: "region" } props)
       [ createElement carouselViewportImpl {} [ div { className: "flex" } kids ]
       ]
   ]
@@ -115,7 +115,7 @@ carouselViewportImpl = unsafeCoerce carouselViewportImpl_
     pure $ div { className: "overflow-hidden", ref: reactRef ctx.ref } (React.reactChildrenToArray props.children)
 
 carouselItem :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
-carouselItem props = div (mergeProps { className: "min-w-0 shrink-0 grow-0 basis-full", role: "group" } props)
+carouselItem props = createElement (el "div") (mergeProps { className: "min-w-0 shrink-0 grow-0 basis-full", role: "group" } props)
 
 carouselPrevious :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
 carouselPrevious props = createElement carouselPreviousImpl

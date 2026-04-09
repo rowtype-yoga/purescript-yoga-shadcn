@@ -1,3 +1,6 @@
 module ShadCN.Internal where
 
-foreign import mergeProps :: forall a b c. a -> b -> c
+import React.Basic (ReactComponent)
+
+foreign import mergeProps :: forall a b r. a -> b -> { | r }
+foreign import el :: forall r. String -> ReactComponent { | r }

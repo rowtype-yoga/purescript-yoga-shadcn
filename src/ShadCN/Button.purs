@@ -20,9 +20,8 @@ import Prelude
 
 import Data.Newtype (class Newtype, un)
 import React.Basic (JSX)
-import ShadCN.Internal (mergeProps)
-import Yoga.React.DOM.HTML (button)
-import Yoga.React.DOM.Internal (class IsJSX)
+import ShadCN.Internal (el, mergeProps)
+import Yoga.React.DOM.Internal (class IsJSX, createElement)
 
 newtype Variant = Variant String
 derive instance Newtype Variant _
@@ -34,7 +33,7 @@ btnCls :: Variant -> Size -> String
 btnCls variant size = base <> " " <> un Variant variant <> " " <> un Size size
 
 btn :: Variant -> Size -> forall r kids. IsJSX kids => { | r } -> kids -> JSX
-btn variant size props = button (mergeProps { className: btnCls variant size } props)
+btn variant size props = createElement (el "button") (mergeProps { className: btnCls variant size } props)
 
 -- Variants
 default :: Variant

@@ -6,7 +6,7 @@ import Data.Maybe (Maybe(..), fromMaybe)
 import Data.Nullable (Nullable, toMaybe)
 import React.Basic (JSX, ReactComponent, ReactContext)
 import React.Basic.Hooks as React
-import ShadCN.Internal (mergeProps)
+import ShadCN.Internal (el, mergeProps)
 import Yoga.React (component)
 import Yoga.React.DOM.HTML (div)
 import Yoga.React.DOM.Internal (class IsJSX, createElement, text)
@@ -18,7 +18,7 @@ inputOTP :: forall r. { | r } -> JSX
 inputOTP props = createElement otpInput (mergeProps { containerClassName: "flex items-center gap-2" } props) ([] :: Array JSX)
 
 inputOTPGroup :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
-inputOTPGroup props = div (mergeProps { className: "flex items-center" } props)
+inputOTPGroup props = createElement (el "div") (mergeProps { className: "flex items-center" } props)
 
 inputOTPSlot :: Int -> JSX
 inputOTPSlot i = inputOTPSlotComponent { index: i }

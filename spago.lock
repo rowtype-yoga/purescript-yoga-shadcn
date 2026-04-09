@@ -36,7 +36,7 @@
               "react-basic-dom": ">=7.0.0 <8.0.0"
             },
             {
-              "react-basic-hooks": ">=9.0.0 <10.0.0"
+              "react-basic-hooks": ">=9.1.1 <10.0.0"
             },
             {
               "tuples": ">=7.0.0 <8.0.0"
@@ -75,7 +75,8 @@
             "strings",
             "web-events",
             "web-html",
-            "yoga-json"
+            "yoga-json",
+            "yoga-stories"
           ]
         }
       }
@@ -300,6 +301,16 @@
       "integrity": "sha256-vtLbrWNaI+pzx/2fw2AQnCovoLtcosClIhjO26QKkh8=",
       "dependencies": [
         "unsafe-coerce"
+      ]
+    },
+    "exitcodes": {
+      "type": "registry",
+      "version": "4.0.0",
+      "integrity": "sha256-xBl4aFSEQ05Owp1ZvO6OxxvLK3LVzU35RSbj79SsePQ=",
+      "dependencies": [
+        "enums",
+        "maybe",
+        "prelude"
       ]
     },
     "foldable-traversable": {
@@ -553,6 +564,20 @@
         "unfoldable"
       ]
     },
+    "literals": {
+      "type": "registry",
+      "version": "1.0.2",
+      "integrity": "sha256-ZkGRFD6gb8etYvyMYpX1Z7lx1Tql7R1VGnD1Dzinup8=",
+      "dependencies": [
+        "integers",
+        "maybe",
+        "numbers",
+        "partial",
+        "prelude",
+        "typelevel-prelude",
+        "unsafe-coerce"
+      ]
+    },
     "maybe": {
       "type": "registry",
       "version": "6.0.0",
@@ -779,6 +804,56 @@
         "prelude"
       ]
     },
+    "open-memoize": {
+      "type": "registry",
+      "version": "6.2.0",
+      "integrity": "sha256-yJLuVYX8FocHIJ+6q7efH/Pj4S+e1Y57DZ5Dn7qf4ww=",
+      "dependencies": [
+        "either",
+        "integers",
+        "lazy",
+        "lists",
+        "maybe",
+        "partial",
+        "prelude",
+        "strings",
+        "tuples"
+      ]
+    },
+    "optparse": {
+      "type": "registry",
+      "version": "5.0.1",
+      "integrity": "sha256-2btDjHPRR0uujUQJuZAN9AzvVoXe7yG6IwnY5evERhQ=",
+      "dependencies": [
+        "arrays",
+        "bifunctors",
+        "control",
+        "effect",
+        "either",
+        "enums",
+        "exists",
+        "exitcodes",
+        "foldable-traversable",
+        "free",
+        "integers",
+        "lazy",
+        "lists",
+        "maybe",
+        "newtype",
+        "node-buffer",
+        "node-process",
+        "node-streams",
+        "nonempty",
+        "numbers",
+        "open-memoize",
+        "partial",
+        "prelude",
+        "strings",
+        "tailrec",
+        "transformers",
+        "tuples"
+      ]
+    },
     "ordered-collections": {
       "type": "registry",
       "version": "3.2.0",
@@ -897,8 +972,8 @@
     },
     "react-basic-hooks": {
       "type": "registry",
-      "version": "9.0.0",
-      "integrity": "sha256-HAIseImRxRcggytW2JCcs/yQ1XRUK20GifSIDrFIQ78=",
+      "version": "9.1.1",
+      "integrity": "sha256-wUZMNNivUj6yJDk3rbgeEgljfv2gq1bPHKHEJbkzyNQ=",
       "dependencies": [
         "aff",
         "aff-promise",
@@ -910,6 +985,7 @@
         "either",
         "exceptions",
         "foldable-traversable",
+        "foreign-object",
         "functions",
         "indexed-monad",
         "integers",
@@ -1052,6 +1128,22 @@
         "type-equality"
       ]
     },
+    "undefined-is-not-a-problem": {
+      "type": "registry",
+      "version": "1.1.0",
+      "integrity": "sha256-0YkVzpcKi40T43go7/f8uLVIYgir6lGzOytL6LPfiog=",
+      "dependencies": [
+        "effect",
+        "either",
+        "foreign",
+        "maybe",
+        "newtype",
+        "prelude",
+        "tuples",
+        "type-equality",
+        "unsafe-coerce"
+      ]
+    },
     "unfoldable": {
       "type": "registry",
       "version": "6.0.0",
@@ -1076,6 +1168,22 @@
       "integrity": "sha256-ttSJTQUnK8AK2eGOsfRxLUJEDPL6pnmExjbiOqfwC6I=",
       "dependencies": [
         "prelude"
+      ]
+    },
+    "untagged-union": {
+      "type": "registry",
+      "version": "1.0.0",
+      "integrity": "sha256-MQvpb13TZEBoi9n/AoQ7ugniSQqbN6XQmAjii9pqJRk=",
+      "dependencies": [
+        "either",
+        "foreign",
+        "foreign-object",
+        "literals",
+        "maybe",
+        "newtype",
+        "prelude",
+        "tuples",
+        "unsafe-coerce"
       ]
     },
     "variant": {
@@ -1212,6 +1320,59 @@
         "web-html"
       ]
     },
+    "yoga-fastify": {
+      "type": "registry",
+      "version": "0.3.0",
+      "integrity": "sha256-nQZq9ZSVFPSXFzLtC32iz4RRT0JgigFLKlAe1PGB+Lo=",
+      "dependencies": [
+        "aff",
+        "arrays",
+        "bifunctors",
+        "effect",
+        "either",
+        "foldable-traversable",
+        "foreign",
+        "foreign-object",
+        "js-promise",
+        "js-promise-aff",
+        "maybe",
+        "newtype",
+        "nullable",
+        "prelude",
+        "record",
+        "strings",
+        "unsafe-coerce",
+        "variant",
+        "yoga-http-api",
+        "yoga-json"
+      ]
+    },
+    "yoga-http-api": {
+      "type": "registry",
+      "version": "0.1.6",
+      "integrity": "sha256-wI2aiM7S99gq7pPCBI8ijemMNV5vqjToLHVLr9nCtog=",
+      "dependencies": [
+        "aff",
+        "arrays",
+        "either",
+        "foldable-traversable",
+        "foreign",
+        "foreign-object",
+        "identity",
+        "integers",
+        "maybe",
+        "newtype",
+        "prelude",
+        "record",
+        "strings",
+        "tuples",
+        "undefined-is-not-a-problem",
+        "unsafe-coerce",
+        "variant",
+        "yoga-json",
+        "yoga-options"
+      ]
+    },
     "yoga-json": {
       "type": "registry",
       "version": "5.2.1",
@@ -1251,6 +1412,17 @@
         "yoga-tree"
       ]
     },
+    "yoga-options": {
+      "type": "registry",
+      "version": "0.1.1",
+      "integrity": "sha256-INtZKI2rw7KcDikzmyXlglsEujSMqHT5jz3ho9dVYC8=",
+      "dependencies": [
+        "identity",
+        "literals",
+        "unsafe-coerce",
+        "untagged-union"
+      ]
+    },
     "yoga-react": {
       "type": "registry",
       "version": "1.0.1",
@@ -1283,6 +1455,46 @@
         "web-events",
         "web-html",
         "web-touchevents"
+      ]
+    },
+    "yoga-stories": {
+      "type": "registry",
+      "version": "0.1.0",
+      "integrity": "sha256-8T+wUThPhXYH2MgSoe1/JjEmUnABk2A012wHliNLLcE=",
+      "dependencies": [
+        "aff",
+        "arrays",
+        "console",
+        "control",
+        "effect",
+        "either",
+        "exceptions",
+        "foldable-traversable",
+        "foreign",
+        "foreign-object",
+        "js-promise",
+        "js-promise-aff",
+        "maybe",
+        "newtype",
+        "node-buffer",
+        "node-fs",
+        "node-path",
+        "nullable",
+        "optparse",
+        "prelude",
+        "react-basic",
+        "react-basic-dom",
+        "react-basic-hooks",
+        "record",
+        "strings",
+        "tuples",
+        "web-dom",
+        "web-events",
+        "web-html",
+        "yoga-fastify",
+        "yoga-json",
+        "yoga-react",
+        "yoga-react-dom"
       ]
     },
     "yoga-tree": {

@@ -4,8 +4,7 @@ import Prelude
 
 import React.Basic (JSX)
 import ShadCN.Button as Btn
-import ShadCN.Internal (mergeProps)
-import Yoga.React.DOM.HTML (div)
+import ShadCN.Internal (el, mergeProps)
 import Yoga.React.DOM.Internal (class IsJSX, createElement)
 import ShadCN.Radix as Radix
 
@@ -22,10 +21,10 @@ alertDialogContent props kids = createElement Radix.alertDialogPortal {}
   ]
 
 alertDialogHeader :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
-alertDialogHeader props = div (mergeProps { className: "flex flex-col space-y-2 text-center sm:text-left" } props)
+alertDialogHeader props = createElement (el "div") (mergeProps { className: "flex flex-col space-y-2 text-center sm:text-left" } props)
 
 alertDialogFooter :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
-alertDialogFooter props = div (mergeProps { className: "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2" } props)
+alertDialogFooter props = createElement (el "div") (mergeProps { className: "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2" } props)
 
 alertDialogTitle :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
 alertDialogTitle props = createElement Radix.alertDialogTitle (mergeProps { className: "text-lg font-semibold" } props)

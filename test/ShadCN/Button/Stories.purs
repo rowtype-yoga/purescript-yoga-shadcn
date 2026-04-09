@@ -19,7 +19,7 @@ data Size = Medium | Small | Large | ExtraSmall
 
 derive instance Generic Size _
 
-variantClass :: Variant -> String
+variantClass :: Variant -> Btn.Variant
 variantClass = case _ of
   Default -> Btn.default
   Destructive -> Btn.destructive
@@ -28,7 +28,7 @@ variantClass = case _ of
   Ghost -> Btn.ghost
   Link -> Btn.link
 
-sizeClass :: Size -> String
+sizeClass :: Size -> Btn.Size
 sizeClass = case _ of
   Medium -> Btn.md
   Small -> Btn.sm
@@ -39,7 +39,7 @@ mkButton :: { label :: String, variant :: Variant, size :: Size } -> JSX
 mkButton = component "ButtonStory" \props -> React.do
   pure $ div { className: "flex flex-col gap-4" }
     [ p { className: "text-muted-foreground text-sm" } (text "Displays a button or a component that looks like a button.")
-    , Btn.btn (variantClass props.variant) (sizeClass props.size) (text props.label)
+    , Btn.btn (variantClass props.variant) (sizeClass props.size) {} (text props.label)
     ]
 
 default :: JSX

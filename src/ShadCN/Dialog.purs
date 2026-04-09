@@ -1,8 +1,7 @@
 module ShadCN.Dialog where
 
 import React.Basic (JSX)
-import ShadCN.Internal (mergeProps)
-import Yoga.React.DOM.HTML (div)
+import ShadCN.Internal (el, mergeProps)
 import Yoga.React.DOM.Internal (class IsJSX, createElement)
 import ShadCN.Radix as Radix
 
@@ -19,10 +18,10 @@ dialogContent props kids = createElement Radix.dialogPortal {}
   ]
 
 dialogHeader :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
-dialogHeader props = div (mergeProps { className: "flex flex-col gap-2 text-center sm:text-left" } props)
+dialogHeader props = createElement (el "div") (mergeProps { className: "flex flex-col gap-2 text-center sm:text-left" } props)
 
 dialogFooter :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
-dialogFooter props = div (mergeProps { className: "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end" } props)
+dialogFooter props = createElement (el "div") (mergeProps { className: "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end" } props)
 
 dialogTitle :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
 dialogTitle props = createElement Radix.dialogTitle (mergeProps { className: "text-lg leading-none font-semibold" } props)

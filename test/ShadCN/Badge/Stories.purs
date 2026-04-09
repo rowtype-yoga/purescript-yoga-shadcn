@@ -20,10 +20,10 @@ mkBadge = component "BadgeStory" \props -> React.do
   pure $ div { className: "flex flex-col gap-4" }
     [ p { className: "text-muted-foreground text-sm" } (text "Displays a badge or a component that looks like a badge.")
     , case props.variant of
-        Default -> Badge.badgeDefault "Badge"
-        Secondary -> Badge.badgeSecondary "Secondary"
-        Destructive -> Badge.badgeDestructive "Destructive"
-        Outline -> Badge.badgeOutline "Outline"
+        Default -> Badge.badgeDefault {} "Badge"
+        Secondary -> Badge.badgeSecondary {} "Secondary"
+        Destructive -> Badge.badgeDestructive {} "Destructive"
+        Outline -> Badge.badgeOutline {} "Outline"
     ]
 
 default :: JSX
