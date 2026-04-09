@@ -1,11 +1,12 @@
 module ShadCN.ScrollArea where
 
 import React.Basic (JSX)
+import ShadCN.Internal (mergeProps)
 import Yoga.React.DOM.Internal (class IsJSX, createElement)
 import ShadCN.Radix as Radix
 
-scrollArea :: forall kids. IsJSX kids => kids -> JSX
-scrollArea kids = createElement Radix.scrollAreaRoot { className: "relative" }
+scrollArea :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
+scrollArea props kids = createElement Radix.scrollAreaRoot (mergeProps { className: "relative" } props)
   [ createElement Radix.scrollAreaViewport { className: "size-full rounded-[inherit]" } kids
   , scrollBar
   , createElement Radix.scrollAreaCorner {} ([] :: Array JSX)

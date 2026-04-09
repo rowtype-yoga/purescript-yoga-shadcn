@@ -8,6 +8,7 @@ import React.Basic (JSX, ReactContext, createContext, provider)
 import React.Basic.DOM as R
 import React.Basic.Events (handler_)
 import React.Basic.Hooks as React
+import ShadCN.Internal (mergeProps)
 import Yoga.React (component)
 import Yoga.React.DOM.HTML (button, div, li, ul)
 import Yoga.React.DOM.Internal (class IsJSX, css)
@@ -45,20 +46,20 @@ sidebarTriggerComponent = component "SidebarTrigger" \props -> React.do
   ctx <- React.useContext sidebarContext
   pure $ R.button { className: "inline-flex items-center justify-center rounded-md text-sm font-medium h-7 w-7", onClick: handler_ ctx.toggle, children: props.children }
 
-sidebarHeader :: forall kids. IsJSX kids => kids -> JSX
-sidebarHeader = div { className: "flex flex-col gap-2 p-2" }
+sidebarHeader :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
+sidebarHeader props = div (mergeProps { className: "flex flex-col gap-2 p-2" } props)
 
-sidebarContent :: forall kids. IsJSX kids => kids -> JSX
-sidebarContent = div { className: "flex min-h-0 flex-1 flex-col gap-2 overflow-auto p-2" }
+sidebarContent :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
+sidebarContent props = div (mergeProps { className: "flex min-h-0 flex-1 flex-col gap-2 overflow-auto p-2" } props)
 
-sidebarFooter :: forall kids. IsJSX kids => kids -> JSX
-sidebarFooter = div { className: "flex flex-col gap-2 p-2" }
+sidebarFooter :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
+sidebarFooter props = div (mergeProps { className: "flex flex-col gap-2 p-2" } props)
 
-sidebarMenu :: forall kids. IsJSX kids => kids -> JSX
-sidebarMenu = ul { className: "flex w-full min-w-0 flex-col gap-1" }
+sidebarMenu :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
+sidebarMenu props = ul (mergeProps { className: "flex w-full min-w-0 flex-col gap-1" } props)
 
-sidebarMenuItem :: forall kids. IsJSX kids => kids -> JSX
-sidebarMenuItem = li { className: "group/menu-item relative" }
+sidebarMenuItem :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
+sidebarMenuItem props = li (mergeProps { className: "group/menu-item relative" } props)
 
-sidebarMenuButton :: forall kids. IsJSX kids => kids -> JSX
-sidebarMenuButton = button { className: "peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm outline-none ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50" }
+sidebarMenuButton :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
+sidebarMenuButton props = button (mergeProps { className: "peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm outline-none ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50" } props)

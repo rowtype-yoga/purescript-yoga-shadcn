@@ -16,6 +16,7 @@ import React.Basic (JSX, ReactContext, Ref, createContext, provider)
 import React.Basic.Events (handler_)
 import React.Basic.Hooks (Hook, unsafeHook)
 import React.Basic.Hooks as React
+import ShadCN.Internal (mergeProps)
 import Unsafe.Coerce (unsafeCoerce)
 import Web.DOM.Internal.Types (Node)
 import Yoga.React.DOM.HTML (button, div)
@@ -68,9 +69,9 @@ carouselContext :: ReactContext CarouselCtx
 carouselContext = unsafePerformEffect do
   createContext { ref: unsafeCoerce unit, canPrev: false, canNext: false, prev: pure unit, next: pure unit }
 
-carousel :: forall kids. IsJSX kids => kids -> JSX
-carousel kids = createElement carouselProviderImpl {}
-  [ div { className: "relative", role: "region" }
+carousel :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
+carousel props kids = createElement carouselProviderImpl {}
+  [ div (mergeProps { className: "relative", role: "region" } props)
       [ createElement carouselViewportImpl {} [ div { className: "flex" } kids ]
       ]
   ]
@@ -113,13 +114,12 @@ carouselViewportImpl = unsafeCoerce carouselViewportImpl_
     ctx <- React.useContext carouselContext
     pure $ div { className: "overflow-hidden", ref: reactRef ctx.ref } (React.reactChildrenToArray props.children)
 
-carouselItem :: forall kids. IsJSX kids => kids -> JSX
-carouselItem = div { className: "min-w-0 shrink-0 grow-0 basis-full", role: "group" }
+carouselItem :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
+carouselItem props = div (mergeProps { className: "min-w-0 shrink-0 grow-0 basis-full", role: "group" } props)
 
-carouselPrevious :: forall kids. IsJSX kids => kids -> JSX
-carouselPrevious = createElement carouselPreviousImpl
-  { className: "absolute z-10 flex size-8 items-center justify-center rounded-full border bg-background shadow-sm disabled:opacity-50 -left-12 top-1/2 -translate-y-1/2"
-  }
+carouselPrevious :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
+carouselPrevious props = createElement carouselPreviousImpl
+  (mergeProps { className: "absolute z-10 flex size-8 items-center justify-center rounded-full border bg-background shadow-sm disabled:opacity-50 -left-12 top-1/2 -translate-y-1/2" } props)
 
 carouselPreviousImpl :: forall r. React.ReactComponent { | r }
 carouselPreviousImpl = unsafeCoerce carouselPreviousImpl_
@@ -129,10 +129,9 @@ carouselPreviousImpl = unsafeCoerce carouselPreviousImpl_
     ctx <- React.useContext carouselContext
     pure $ button { disabled: not ctx.canPrev, onClick: handler_ ctx.prev } (React.reactChildrenToArray props.children)
 
-carouselNext :: forall kids. IsJSX kids => kids -> JSX
-carouselNext = createElement carouselNextImpl
-  { className: "absolute z-10 flex size-8 items-center justify-center rounded-full border bg-background shadow-sm disabled:opacity-50 -right-12 top-1/2 -translate-y-1/2"
-  }
+carouselNext :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
+carouselNext props = createElement carouselNextImpl
+  (mergeProps { className: "absolute z-10 flex size-8 items-center justify-center rounded-full border bg-background shadow-sm disabled:opacity-50 -right-12 top-1/2 -translate-y-1/2" } props)
 
 carouselNextImpl :: forall r. React.ReactComponent { | r }
 carouselNextImpl = unsafeCoerce carouselNextImpl_

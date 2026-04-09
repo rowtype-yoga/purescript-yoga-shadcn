@@ -1,23 +1,24 @@
 module ShadCN.Card where
 
 import React.Basic (JSX)
+import ShadCN.Internal (mergeProps)
 import Yoga.React.DOM.HTML (div)
 import Yoga.React.DOM.Internal (class IsJSX)
 
-card :: forall kids. IsJSX kids => kids -> JSX
-card = div { className: "rounded-xl border bg-card text-card-foreground shadow-sm" }
+card :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
+card props = div (mergeProps { className: "rounded-xl border bg-card text-card-foreground shadow-sm" } props)
 
-cardHeader :: forall kids. IsJSX kids => kids -> JSX
-cardHeader = div { className: "flex flex-col space-y-1.5 p-6" }
+cardHeader :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
+cardHeader props = div (mergeProps { className: "flex flex-col space-y-1.5 p-6" } props)
 
-cardTitle :: forall kids. IsJSX kids => kids -> JSX
-cardTitle = div { className: "font-semibold leading-none tracking-tight" }
+cardTitle :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
+cardTitle props = div (mergeProps { className: "font-semibold leading-none tracking-tight" } props)
 
-cardDescription :: forall kids. IsJSX kids => kids -> JSX
-cardDescription = div { className: "text-muted-foreground text-sm" }
+cardDescription :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
+cardDescription props = div (mergeProps { className: "text-muted-foreground text-sm" } props)
 
-cardContent :: forall kids. IsJSX kids => kids -> JSX
-cardContent = div { className: "p-6 pt-0" }
+cardContent :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
+cardContent props = div (mergeProps { className: "p-6 pt-0" } props)
 
-cardFooter :: forall kids. IsJSX kids => kids -> JSX
-cardFooter = div { className: "flex items-center p-6 pt-0" }
+cardFooter :: forall r kids. IsJSX kids => { | r } -> kids -> JSX
+cardFooter props = div (mergeProps { className: "flex items-center p-6 pt-0" } props)
