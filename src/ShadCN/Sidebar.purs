@@ -1,6 +1,6 @@
 module ShadCN.Sidebar where
 
-import Prelude
+import Prelude hiding (div)
 import Data.Tuple.Nested ((/\))
 import Effect (Effect)
 import Effect.Unsafe (unsafePerformEffect)
@@ -33,8 +33,6 @@ sidebar kids = sidebarComponent { children: kids }
 
 sidebarComponent :: { children :: Array JSX } -> JSX
 sidebarComponent = component "Sidebar" \props -> React.do
-  ctx <- React.useContext sidebarContext
-  let state = if ctx.open then "expanded" else "collapsed"
   pure $ div { className: "group peer text-sidebar-foreground flex h-svh w-[--sidebar-width] flex-col bg-sidebar border-r transition-[width] duration-200 data-[state=collapsed]:w-[--sidebar-width-icon]" } props.children
 
 sidebarTrigger :: Array JSX -> JSX

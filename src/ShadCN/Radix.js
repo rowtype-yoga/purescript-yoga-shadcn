@@ -194,7 +194,3 @@ export const tooltipTrigger = Tooltip.Trigger;
 export const tooltipPortal = Tooltip.Portal;
 export const tooltipContent = Tooltip.Content;
 
-// Utility
-export function unsafeShowNumber(n) {
-  return String(n);
-}
